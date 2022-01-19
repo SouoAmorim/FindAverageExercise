@@ -1,6 +1,5 @@
 package exercise;
 
-import java.io.PrintWriter;
 import java.util.IntSummaryStatistics;
 import java.util.Scanner;
 
@@ -16,6 +15,7 @@ public class Logic {
 	}
 
 	private void adding() {
+		wipeAndReset();
 		System.out.println("Please, input the values to be added to the list!");
 		for (int i = 0; i < 3; i++) {
 			System.out.println(valuesLeft + " remaining to be added!");
@@ -31,13 +31,18 @@ public class Logic {
 		System.out.println("The average of this list is " + calculations.getAverage());
 		pojo.setAverage(calculations.getAverage());
 	}
-	
+
 	public void getAverage() {
 		System.out.println("The average stored is " + pojo.getAverage() );
 	}
 
 	public void getListValues() {
 		System.out.println("The values inside the list are " + pojo.getIntList());
+	}
+
+	private void wipeAndReset() {
+		pojo.getIntList().clear();
+		valuesLeft = 3;
 	}
 
 }
