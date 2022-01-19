@@ -12,6 +12,8 @@ public class Logic {
 	public void run() {
 		adding();
 		doAverage();
+		divideTheSum();
+		
 	}
 
 	private void adding() {
@@ -30,6 +32,13 @@ public class Logic {
 				.summaryStatistics();
 		System.out.println("The average of this list is " + calculations.getAverage());
 		pojo.setAverage(calculations.getAverage());
+	}
+	
+	private void divideTheSum() {
+		IntSummaryStatistics calculations = pojo.getIntList().stream()
+				.mapToInt((val) -> val)
+				.summaryStatistics();
+		System.out.println("The result of the sum divided by the average is " + (calculations.getSum() / pojo.getAverage()));
 	}
 
 	public void getAverage() {
